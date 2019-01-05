@@ -1,0 +1,61 @@
+.MainHeading h1 {
+    text-align: center;
+}
+
+.MainContent {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.MainContent_leftBar {
+    width: 18%;
+    float: left;
+    padding: 20px;
+}
+.MainContent_rightBar {
+    width: 80%;
+    float: right;
+    padding:20px;
+}
+.RangeSliders_container input{
+    margin-left: 15px;
+}
+.Filters .Filters_options {
+    padding: 10px 0;
+    border: 1px solid #d8d8d8;
+    margin-bottom: 10px;
+}
+.RangeSliders .RangeSliders_container, .Filters .RangeSliders_container{
+    margin: 0 20px;
+    margin-bottom: 10px;
+}
+.RangeSliders_container label {
+    padding-bottom: 10px;
+    font-weight: normal;
+}
+.RangeSliders_container h4 {
+    font-weight: bold;
+}
+.UserInfo table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.UserInfo table tbody tr .SourceImage {
+    height: 50px;
+    width: 80px;
+}
+table thead tr th {
+    width: 10%;
+    background-color:#727272;
+    color: #fff;
+}
+table tbody tr td {
+    width: 10%;
+}
+table tbody tr:nth-child(odd) {
+    background-color:#ededed;
+}
+

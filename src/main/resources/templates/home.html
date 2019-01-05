@@ -1,0 +1,138 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link rel="stylesheet" href="/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/home.css">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="filter.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/css/ion.rangeSlider.skinHTML5.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.2.0/js/ion.rangeSlider.min.js"></script>
+
+    <script>
+        $(function () {
+            $("#slider_score").ionRangeSlider({
+                type: "single",
+                min:0.00 ,
+                max:1.00,
+                step:0.01,
+                keyboard: false,
+            })
+        });
+        $(function () {
+            $("#slider_age").ionRangeSlider({
+                type: "single",
+                min: 18,
+                max: 95,
+                step: 1,
+                keyboard: false,
+            })
+        });
+        $(function () {
+            $("#slider_height").ionRangeSlider({
+                type: "single",
+                min: 135,
+                max: 210,
+                step: 1,
+                keyboard: false,
+            })
+        });
+    </script>
+
+</head>
+<body>
+<div class="Wrapper">
+    <div class="MainHeading">
+        <h1> Filtering Matches </h1>
+    </div>
+    <div class="MainContent">
+        <div class="MainContent_leftBar">
+            <div class="Filters">
+                <form action="#" id="clientInfo" method="POST">
+                    <div class="Filters CheckBoxes">
+                        <div class="Filters_options">
+                            <div class="RangeSliders_container">
+                                <h4>Refine Search</h4>
+                            </div>
+                        </div>
+                        <div class="Filters_options">
+                            <div class="RangeSliders_container">
+                                <label for="photo">Has Photo:</label>
+                                <input type="checkbox" id="photo">
+                            </div>
+                        </div>
+                        <div class="Filters_options">
+                            <div class="RangeSliders_container">
+                                <label for="inContact">In Contact:</label>
+                                <input type="checkbox" id="inContact">
+                            </div>
+                        </div>
+                        <div class="Filters_options">
+                            <div class="RangeSliders_container">
+                                <label for="favourite">Favourite :</label>
+                                <input type="checkbox" id="favourite">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Filters RangeSliders">
+                        <div class="Filters_options">
+                            <div class="RangeSliders_container">
+                                <label>Compatibility Score:</label>
+                                <input class="range-Slider" id="slider_score"/>
+                            </div>
+                        </div>
+                        <div class="Filters_options">
+                            <div class="RangeSliders_container">
+                                <label>Age:</label>
+                                <input class="range-Slider" id="slider_age"/>
+                            </div>
+                        </div>
+                        <div class="Filters_options">
+                            <div class="RangeSliders_container">
+                                <label>Height: </label>
+                                <input class="range-Slider" id="slider_height"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <div class="MainContent_rightBar">
+            <div class="UserInfo" id="result">
+                <table collength="10" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name :</th>
+                        <th>Age :</th>
+                        <th>Job title :</th>
+                        <th>Height:</th>
+                        <th>City:</th>
+                        <th>Photo:</th>
+                        <th>Score:</th>
+                        <th>Contacts:</th>
+                        <th>Favourite:</th>
+                        <th>Religion:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
