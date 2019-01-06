@@ -47,7 +47,7 @@ public class FilterService {
     private List<Match> getMatchesForFavourite(List<Match> matches) {
         return matches.stream().filter(match -> match.getFavourite()).collect(Collectors.toList());
     }
-    
+
     private List<Match> getMatchesForHeight(List<Match> matches, String value) {
         return matches.stream().filter(match -> match.getHeightInCm() >= Integer.parseInt(value)).collect(Collectors.toList());
     }
