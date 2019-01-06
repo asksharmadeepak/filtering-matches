@@ -35,6 +35,20 @@ $(document).ready(function () {
         ajaxForFilter("true", "score", value)
     });
 
+    $("#slider_age").change(function (e) {
+        var current = $(this)
+        var value = current.prop('value')
+        console.log(value)
+        ajaxForFilter("true", "age", value)
+    });
+
+    $("#slider_height").change(function (e) {
+        var current = $(this)
+        var value = current.prop('value')
+        ajaxForFilter("true", "height", value)
+    });
+
+
     function ajaxForFilter(isEnable, filterName, value) {
         $.ajax({
             type: "GET",

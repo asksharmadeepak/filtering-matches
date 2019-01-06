@@ -3,8 +3,8 @@ package com.example.demo.services;
 import com.example.demo.entity.Match;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by dsm2061 on 12/3/18.
@@ -32,65 +32,28 @@ public class FilterService {
         }
     }
 
-    private List<Match> getMatchesForHeight(List<Match> matches, String value) {
-        List<Match> finalList = new ArrayList<>();
-        for (Match match : matches) {
-            if (match.getHeightInCm() >= Integer.parseInt(value)) {
-                finalList.add(match);
-            }
-        }
-        return finalList;
-    }
-
-    private List<Match> getMatchesForAge(List<Match> matches, String value) {
-        List<Match> finalList = new ArrayList<>();
-        for (Match match : matches) {
-            if (match.getAge() >= Integer.parseInt(value)) {
-                finalList.add(match);
-            }
-        }
-        return finalList;
-    }
-
     private List<Match> getMatchesForScore(List<Match> matches, String value) {
-        List<Match> finalList = new ArrayList<>();
-        for (Match match : matches) {
-            if (match.getCompatibilityScore() >= Double.parseDouble(value)) {
-                finalList.add(match);
-            }
-        }
-        return finalList;
+        return matches.stream().filter(match -> match.getCompatibilityScore() >= Double.parseDouble(value)).collect(Collectors.toList());
     }
 
     private List<Match> getMatchesForPhoto(List<Match> matches) {
-        List<Match> finalList = new ArrayList<>();
-        for (Match match : matches) {
-            if (match.getMainPhoto() != null && !match.getMainPhoto().isEmpty() && !match.getMainPhoto().equals("Not available"))  {
-                finalList.add(match);
-            }
-        }
-        return finalList;
+        return matches.stream().filter(match -> match.getMainPhoto() != null && !match.getMainPhoto().isEmpty() && !match.getMainPhoto().equals("Not available")).collect(Collectors.toList());
     }
 
     private List<Match> getMatchesForInContact(List<Match> matches) {
-        List<Match> finalList = new ArrayList<>();
-        for (Match match : matches) {
-            if (match.getContactsExchanged() != 0) {
-                finalList.add(match);
-            }
-        }
-        return finalList;
+        return matches.stream().filter(match -> match.getContactsExchanged() != 0).collect(Collectors.toList());
     }
 
     private List<Match> getMatchesForFavourite(List<Match> matches) {
-        List<Match> finalList = new ArrayList<>();
-        for (Match match : matches) {
-            if (match.getFavourite()) {
-                finalList.add(match);
-            }
-        }
-        return finalList;
+        return matches.stream().filter(match -> match.getFavourite()).collect(Collectors.toList());
+    }
+    
+    private List<Match> getMatchesForHeight(List<Match> matches, String value) {
+        return matches.stream().filter(match -> match.getHeightInCm() >= Integer.parseInt(value)).collect(Collectors.toList());
     }
 
+    private List<Match> getMatchesForAge(List<Match> matches, String value) {
+        return matches.stream().filter(match -> match.getAge() >= Integer.parseInt(value)).collect(Collectors.toList());
+    }
 
 }
