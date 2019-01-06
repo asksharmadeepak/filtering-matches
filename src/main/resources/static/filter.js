@@ -32,6 +32,8 @@ $(document).ready(function () {
     $("#slider_score").change(function (e) {
         var current = $(this)
         var value = current.prop('value')
+        console.log(value)
+
         ajaxForFilter("true", "score", value)
     });
 
