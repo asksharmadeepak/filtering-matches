@@ -23,15 +23,39 @@ public class FilterService {
                 return getMatchesForFavourite(matches);
             case "score":
                 return getMatchesForScore(matches, value);
+            case "age":
+                return getMatchesForAge(matches, value);
+            case "height":
+                return getMatchesForHeight(matches, value);
             default:
                 return matches;
         }
     }
 
+    private List<Match> getMatchesForHeight(List<Match> matches, String value) {
+        List<Match> finalList = new ArrayList<>();
+        for (Match match : matches) {
+            if (match.getHeightInCm() >= Integer.parseInt(value)) {
+                finalList.add(match);
+            }
+        }
+        return finalList;
+    }
+
+    private List<Match> getMatchesForAge(List<Match> matches, String value) {
+        List<Match> finalList = new ArrayList<>();
+        for (Match match : matches) {
+            if (match.getAge() >= Integer.parseInt(value)) {
+                finalList.add(match);
+            }
+        }
+        return finalList;
+    }
+
     private List<Match> getMatchesForScore(List<Match> matches, String value) {
         List<Match> finalList = new ArrayList<>();
         for (Match match : matches) {
-            if (match.getCompatibilityScore().equals(value)) {
+            if (match.getCompatibilityScore() >= Double.parseDouble(value)) {
                 finalList.add(match);
             }
         }

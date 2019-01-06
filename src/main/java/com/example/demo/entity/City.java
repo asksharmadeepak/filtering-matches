@@ -11,6 +11,9 @@ public class City {
     private BigDecimal lat;
     private BigDecimal lon;
 
+    public City() {
+    }
+
     public String getName() {
         return name;
     }

@@ -16,6 +16,22 @@ public class Match {
     private Boolean favourite;
     private String religion;
 
+    public Match() {
+    }
+
+    public Match(String displayName, Integer age, String jobTitle, int heightInCm, City city, String mainPhoto, Double compatibilityScore, int contactsExchanged, Boolean favourite, String religion) {
+        this.displayName = displayName;
+        this.age = age;
+        this.jobTitle = jobTitle;
+        this.heightInCm = heightInCm;
+        this.city = city;
+        this.mainPhoto = mainPhoto;
+        this.compatibilityScore = compatibilityScore;
+        this.contactsExchanged = contactsExchanged;
+        this.favourite = favourite;
+        this.religion = religion;
+    }
+
     public String getDisplayName() {
         return displayName;
     }
